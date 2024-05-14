@@ -1,13 +1,19 @@
-
-
-
 function getProduct(id){
-    var id=id
+    var id=parseInt(id)
     console.log(id)
-    fetch('https://3245-andreagri-amazonflask-h49wtq4q2q0.ws-eu111.gitpod.io/prod', {
+    fetch('https://3245-andreagri-amazonflask-1q5tl582h3m.ws-eu111.gitpod.io/prod', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id)})
+        body: JSON.stringify({'identifair': id})})
+        console.log(JSON.stringify(id))
+        .then((response) => response.json())
+        .then(Data =>
+            console.log(Data),
+            document.getElementById('prod').innerHTML= Data,
+            document.getElementById('prod').style.display='block'
+
+
+        )
 }

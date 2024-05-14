@@ -9,6 +9,13 @@ print(df)
 def home():
     return render_template('amazon.html', products=df[['Immagine','ID']].to_dict('records'))#mandiamo il data frame 
 
+@app.route('/prod', methods=['POST'])
+def prod():
+  json = request.get_json()
+  n=json.get('identifair')
+  
+  return (df.iloc[n])
+
 
 
 if __name__ == '__main__':
