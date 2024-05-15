@@ -13,8 +13,9 @@ def home():
 def prod():
   json = request.get_json()
   n=json.get('identifair')
+  print(n)
   
-  return (df.iloc[n])
+  return ( {'df' : df.iloc[n]})
 
 
 
