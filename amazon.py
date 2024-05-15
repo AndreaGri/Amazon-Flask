@@ -10,12 +10,11 @@ def home():
     return render_template('amazon.html', products=df[['Immagine','ID']].to_dict('records'))#mandiamo il data frame 
 
 @app.route('/prod', methods=['POST'])
-def prod():
+def produ():
   json = request.get_json()
   n=json.get('identifair')
-  print(n)
-  
-  return ( {'df' : df.iloc[n]})
+  getData=df.iloc[n]
+  return ( getData.to_json(orient='records'))
 
 
 
